@@ -1,31 +1,14 @@
 # Automatic Question Generation
 
-This program takes a text file as an input and generates questions by analyzing each sentence. 
-
-Note: A similar implementatin is [here](https://github.com/indrajithi/question_generation).
-
-## Usage
-
-**Virtualenv recommended**
-
-`pip install -r requirements.txt`
-
-`python -m textblob.download_corpora` 
-`python3 quest.py file.txt`
-
-*Use `-v` option to activate verbose*
-
-`python3 quest.py file.txt -v`
-
-*You can also try inputing any text file.*
+This program will take a text file as an input and generate questions by analyzing each sentences. 
 
 ## How does this work?
 
-**A text file passed as argument to the program.**
+**The text file passed as argument to the program.**
 
-The text file is read using a Python package called **`textblob`**.
-Each paragraph is further broken down into sentences using the function **`parse(string):`**
-And each sentence is passed as string to function **`genQuestion(line):`**
+The text file is read using a Python package called `textblob`.
+Each paragraph is further broken down to sentences using function `parse(string):`. 
+and each sentence is passed as string to function `genQuestion(line):`
 
 **These are the part-of-speech tags which is used in this demo.**
 
@@ -42,9 +25,10 @@ PRP 	Personal pronoun
 NN 	Noun, singular or mass 
 ```
 
-**Ref:** [Alphabetical list of part-of-speech tags used in the Penn Treebank Project](http://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html)
+**Ref:** Alphabetical list of part-of-speech tags used in the Penn Treebank Project.
+http://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html
 
-**This program uses a small list of combinations.**
+**Then I have created a small list of combinations.**
 
 ```
     l1 = ['NNP', 'VBG', 'VBZ', 'IN']
@@ -62,19 +46,31 @@ NN 	Noun, singular or mass
     l13 = ['NN', 'VBZ']
 ```
 
-Each sentence is parsed using English grammar rules with the use of condition statements.
-A dictionary is created called **`bucket`** and the part-of-speech tags are added to it.
+Then a dictionary is created called `bucket` and parsed using some English grammar using condition statements.
 
 The sentence which gets parsed successfully generates a question sentence. 
-The generated question list is printed as output.
+The generated question list is printed.
 
-**This demo only uses the grammar to generate questions starting with 'what'.**
+**This demo only used the grammar to print questions starting with 'what'.**
+
+## Usage
+
+**Virtualenv recommended**
+
+`pip install -r requirements.txt`
+
+`python3 quest.py file.txt`
+
+*Use `-v` option to activate verbose*
+
+`python3 quest.py file.txt -v`
+
+*You can also try inputing any text file.*
 
 
-## Example
+# Example
 
 **Sentence:**
-
 -----------INPUT TEXT-------------
 
 ```
@@ -117,9 +113,9 @@ Next is Niyama -- cleanliness, contentment, austerity, study, and self - surrend
  Question: What is Niyama?
 ```
 
-**We can also activate the `verbose` mode by -v argument to further understand the question generation process.**
+# We can also activate the `verbose` by -v argument to further understand the question generation process.
 
-**Output:** with verbose option.
+**Output with verbose option.**
 
 ```
  Bansoori is an Indian classical instrument. 
@@ -177,7 +173,6 @@ TAGS: [('Osmosis', 'NN'), ('is', 'VBZ'), ('the', 'DT'), ('movement', 'NN'), ('of
 
 * We can use pre-tagged bag of words to improve part-of-speech tags.
 
-
 ## Reference 
 
 [Alphabetical list of part-of-speech tags used in the Penn Treebank Project](http://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html)
@@ -189,13 +184,3 @@ TAGS: [('Osmosis', 'NN'), ('is', 'VBZ'), ('the', 'DT'), ('movement', 'NN'), ('of
 [Automatic Question Generation from Paragraph](http://www.ijaerd.com/papers/finished_papers/Automatic%20Question%20Generation%20from%20Paragraph-IJAERDV03I1213514.pdf)
 
 [K2Q: Generating Natural Language Questions from Keywords with User Refinements](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/37566.pdf)
-
-[Infusing NLU into Automatic Question Generation](http://www.aclweb.org/anthology/W16-6609)
-
-[Literature Review of Automatic Question Generation Systems](https://pdfs.semanticscholar.org/fee0/1067ea9ce9ac1d85d3fd84c3b7f363a3826b.pdf)
-
-[Neural Question Generation from Text: A Preliminary Study](https://arxiv.org/pdf/1704.01792.pdf)
-
-[Learning to Ask: Neural Question Generation for Reading Comprehension [Apr 2017] ](https://arxiv.org/pdf/1705.00106.pdf)
-
-[SQuAD: The Stanford Question Answering Dataset](https://rajpurkar.github.io/SQuAD-explorer/)
